@@ -1,6 +1,9 @@
 from fastapi import FastAPI, Request
 from routers import auth, clients  # Importas tus routers
 from models.seed import seed_db
+from fastapi.templating import Jinja2Templates
+from fastapi.responses import RedirectResponse
+templates = Jinja2Templates(directory="templates")
 
 app = FastAPI()
 
@@ -31,7 +34,11 @@ async def add_user_to_request(request: Request, call_next):
     return response
 
 @app.get("/")
-async def root():
-    return {"message": "Bienvenido a la App"}
+async def root(request: Request):
+     return templates.TemplateResponse(
+        request=request, 
+        name="dash.html", 
+        context={"mensaje": "Bienvenido"} 
+    )
 
 # gunicorn app:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000

@@ -1,0 +1,32 @@
+# Byte-compiled / archivos temporales de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales (el nombre que uses: venv, .venv, env, etc.)
+venv/
+.venv/
+env/
+ENV/
+
+# Variables de entorno y secretos (¡MUY IMPORTANTE!)
+.env
+.flaskenv
+
+# Bases de datos locales (SQLite)
+*.db
+*.sqlite3
+
+# IDEs (VSCode, PyCharm)
+.vscode/
+.idea/
+*.swp
+
+# Testing y Cobertura
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Logs
+*.log
